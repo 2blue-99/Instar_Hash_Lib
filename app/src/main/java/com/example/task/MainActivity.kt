@@ -1,21 +1,15 @@
 package com.example.task
 
 import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.Spannable
-import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
-import android.util.Log
-import androidx.annotation.RequiresApi
-import androidx.core.text.set
-import androidx.core.widget.addTextChangedListener
 import com.example.task.databinding.ActivityMainBinding
 import java.lang.Exception
-import java.lang.NullPointerException
+
 
 class MainActivity : AppCompatActivity() {
     var Count = 1
@@ -43,17 +37,10 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                println("${s.toString()}")
+
                 val myText = binding.myEdit.text
                 val matchResult:Sequence<MatchResult> = regex.findAll(myText)
-//                binding.myEdit.setTextColor(Color.BLUE)
-//                println("@@@@ ${binding.myEdit.text}")
-//                println("selectionStart : ${binding.myEdit.selectionStart}")
-//                println("selectionEnd : ${binding.myEdit.selectionEnd}")
-                println("\n")
-//                println("start : ${start}")
-//                println("before : ${before}")
-//                println("count : ${count}")
+
 
                 myText.setSpan(
                     ForegroundColorSpan(Color.BLACK),
@@ -63,18 +50,10 @@ class MainActivity : AppCompatActivity() {
                 )
 
                 if(matchResult.toList().isNotEmpty()) {
-//                    println(" \n\n")
                     Count = 0
                     for (i in matchResult.toList()) {
                         nowGap = i.value
-                        println("\n")
-//                        Count = binding.myEdit.text.length - Count
-                        println("before Count : ${Count}")
-
-                        println("gap i : ${i.value}")
                         val myStartLoation = myText.indexOf(i.value, Count)
-                        println("myStartLoation : $myStartLoation")
-                        println("myendLoation : ${myStartLoation + i.value.length}")
                         try {
                             myText.setSpan(
                                 ForegroundColorSpan(Color.RED),
@@ -84,9 +63,7 @@ class MainActivity : AppCompatActivity() {
                             )
                             Count = myStartLoation + i.value.length
                             println("after Count : ${Count}")
-//                            Count = Count + binding.myEdit.text.length
-//                            Count = binding.myEdit.text.length
-//                            println("nowCount : $Count")
+
                         }catch (e:Exception){
                             println("e : $e")
                         }
@@ -95,8 +72,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 else{
                     println("no")
-//                    Count+=1
-//                    println("nowCount $Count")
                 }
 
 
