@@ -9,16 +9,16 @@ afterEvaluate {
         publications{
             release(MavenPublication){
                 from components.release
-                groupId = 'com.pss(패키지 이름)'
-                artifactId = 'Library(모듈 이름)'
+                groupId = 'com.github.theStoryOfBlue'
+                artifactId = 'mylibrary'
                 version = '1.0'
             }
 
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
-                groupId = 'com.pss(패키지 이름)'
-                artifactId = 'Library(모듈 이름)'
+                groupId = 'com.github.theStoryOfBlue'
+                artifactId = 'mylibrary'
                 version = '1.0'
             }
         }
