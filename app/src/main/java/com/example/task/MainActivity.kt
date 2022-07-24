@@ -1,5 +1,6 @@
 package com.example.task
 
+import android.content.Context
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.text.Editable
 import android.text.Spannable
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
+import com.example.mylibrary.MyInstarTag
 import com.example.task.databinding.ActivityMainBinding
 import java.lang.Exception
 
@@ -23,6 +25,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val a = pureumLib(5)
+
+//        this.pureumLib(5)
+        binding.editQuery.apply {
+            this.pureumLib(5)
+        }
+
+
+
+
+
     }
 
     fun pureumLib(max: Int){

@@ -12,7 +12,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mylibrary.databinding.MyinstartagBinding
 import java.lang.Exception
 
-class MyInstarTag(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
+class MyInstarTag @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ConstraintLayout(context, attrs,defStyleAttr) {
     private val binding: MyinstartagBinding by lazy {
         MyinstartagBinding.inflate(LayoutInflater.from(context),this,true)
     }
